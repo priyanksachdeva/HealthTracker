@@ -6,6 +6,9 @@ import { WeeklyChart } from "@/components/health/weekly-chart";
 import { HealthMetrics } from "@/components/health/health-metrics";
 import { GoalsSection } from "@/components/health/goals-section";
 import { HealthConnect } from "@/components/health/health-connect";
+import { WaterTracker } from "@/components/health/water-tracker";
+import { WorkoutTracker } from "@/components/health/workout-tracker";
+import { NutritionTracker } from "@/components/health/nutrition-tracker";
 import { BottomNavigation } from "@/components/ui/bottom-navigation";
 import { HealthData, Goal, ConnectedService } from "@shared/schema";
 import { apiRequest } from "@/lib/queryClient";
@@ -104,7 +107,7 @@ export default function Home() {
       <div className="flex justify-between items-center p-4 pt-12 border-b border-nothing-gray-medium dark:border-nothing-gray-dark">
         <div className="flex items-center space-x-2">
           <span 
-            className="text-sm font-light"
+            className="text-sm font-ndot"
             data-testid="current-time"
           >
             {formatTime(currentTime)}
@@ -127,9 +130,9 @@ export default function Home() {
       <div className="flex-1 overflow-auto pb-20">
         {/* Header */}
         <div className="p-6 pb-8">
-          <h1 className="text-2xl font-light tracking-wide mb-2">Health</h1>
+          <h1 className="text-2xl font-ndot-bold tracking-wide mb-2">Health</h1>
           <p 
-            className="text-nothing-gray-dark dark:text-nothing-gray text-sm font-light"
+            className="text-nothing-gray-dark dark:text-nothing-gray text-sm font-ndot"
             data-testid="current-date"
           >
             Today, {formatDate(currentTime)}
@@ -139,11 +142,20 @@ export default function Home() {
         {/* Step Tracker */}
         <StepTracker healthData={currentHealthData} goal={stepsGoal} />
 
+        {/* Water Tracker */}
+        <WaterTracker date={today} />
+
         {/* Weekly Chart */}
         <WeeklyChart weeklyData={weeklyData || []} />
 
         {/* Health Metrics */}
         <HealthMetrics healthData={currentHealthData} />
+
+        {/* Workouts */}
+        <WorkoutTracker date={today} />
+
+        {/* Nutrition */}
+        <NutritionTracker date={today} />
 
         {/* Goals */}
         <GoalsSection 

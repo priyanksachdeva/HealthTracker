@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -39,6 +41,7 @@
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
+  --font-ndot: 'Share Tech Mono', 'Orbitron', 'Courier New', monospace;
   --radius: 0rem;
   
   /* Nothing-specific colors */
@@ -166,3 +169,67 @@
 .animate-slide-up {
   animation: slideUp 0.3s ease-out;
 }
+
+/* Nothing dot-matrix font classes */
+.font-ndot {
+  font-family: var(--font-ndot);
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+.font-ndot-bold {
+  font-family: var(--font-ndot);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.font-ndot-light {
+  font-family: var(--font-ndot);
+  letter-spacing: 0.1em;
+  font-weight: 300;
+}
+
+/* Heart rate zone colors */
+.zone-1 { color: #22c55e; } /* Green - Fat burn */
+.zone-2 { color: #84cc16; } /* Light green - Aerobic base */
+.zone-3 { color: #eab308; } /* Yellow - Aerobic */
+.zone-4 { color: #f97316; } /* Orange - Anaerobic */
+.zone-5 { color: #ef4444; } /* Red - Neuromuscular */
+
+.bg-zone-1 { background-color: #22c55e; }
+.bg-zone-2 { background-color: #84cc16; }
+.bg-zone-3 { background-color: #eab308; }
+.bg-zone-4 { background-color: #f97316; }
+.bg-zone-5 { background-color: #ef4444; }
+
+/* Pulsing animation for sync status */
+@keyframes pulse-sync {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-sync {
+  animation: pulse-sync 1.5s ease-in-out infinite;
+}
+
+/* Workout intensity indicators */
+.intensity-low { border-left: 4px solid #22c55e; }
+.intensity-moderate { border-left: 4px solid #eab308; }
+.intensity-high { border-left: 4px solid #ef4444; }
+
+/* Sleep quality indicators */
+.sleep-poor { color: #ef4444; }
+.sleep-fair { color: #f97316; }
+.sleep-good { color: #eab308; }
+.sleep-excellent { color: #22c55e; }
+
+/* Nutrition macro colors */
+.macro-protein { color: #dc2626; }
+.macro-carbs { color: #2563eb; }
+.macro-fat { color: #ca8a04; }
+.macro-fiber { color: #16a34a; }
+
+.bg-macro-protein { background-color: #dc2626; }
+.bg-macro-carbs { background-color: #2563eb; }
+.bg-macro-fat { background-color: #ca8a04; }
+.bg-macro-fiber { background-color: #16a34a; }
